@@ -9,6 +9,5 @@
 ![eightnumques](figure/eight_num1.png)
 
 # 统计黑格子问题
-## count_black.py
+## [countblack](count_black.py)
 ![countblack](figure/count_black.png)
-![countblack](count_black.py)
