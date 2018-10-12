@@ -11,3 +11,7 @@
 # 统计黑格子问题
 ## [countblack.py](count_black.py)
 ![countblack](figure/count_black.png)
+
+# 计算24点问题
+## [howequal24.py](howequal24.py)
+![cal24](figure/cal24.png)
