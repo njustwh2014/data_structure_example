@@ -1,40 +1,42 @@
+#思路是宽度优先搜索，据说可以双向宽度优先搜索
 import numpy as np
 import time
 from queue import Queue
 
-class state_node:#记录状态节点
+class state_node:#记录状态节点，便于找到最优解路径
     def __init__(self,dot,parentdot):
         self.dot=dot
-        self.parentdot=parentdot
+        self.parentdot=parentdot#上一步点
         self.isroot=False
 
-def node_operate(si,sj):
+def node_operate(si,sj):#操作
     a=Queue()
-    if((si<0)or(si>N-1)or(sj<0)or(sj>N-1)):
+    if((si<0)or(si>N-1)or(sj<0)or(sj>N-1)):#判断是否在棋盘内
         return a
     else:
         state_node_temp = []
         for i in range(8):
-            state_node_temp.append(state_node((0, 0), (si, sj)))
+            state_node_temp.append(state_node((0, 0), (si, sj)))#之所以用列表是因为python把变量普通进队列是变量地址，所以只用变量会导致队列均指向同一地址
         for i in range(8):
             state_node_temp[i].dot=(si+direction[i][0],sj+direction[i][1])
             a.put(state_node_temp[i])
         return a
 
 def knight_der_find(si,sj,di,dj):
+    #中间变量过多，需要优化
     steps=0
     solution=[]
     flag_node=True
     temp=(0,0)
     dst=(di,dj)
     node_temp=(0,0)
-    current_layer=Queue()
-    next_layer=Queue()
+    current_layer=Queue()#记录当前层
+    next_layer=Queue()#记录当前层的下一层
     next_layer_temp=Queue()
     initnode=state_node((si,sj),(si,sj))
     initnode.isroot=True
     current_layer.put(initnode)
-    closelist=[]
+    closelist=[]#记录已经遍历过的所有点
     closelist.append(initnode)
     while(steps<N*N):#bfs
         while(not current_layer.empty()):
@@ -45,7 +47,7 @@ def knight_der_find(si,sj,di,dj):
                 if (dst == temp.dot):
                     solution.append(temp)
                     while(not temp.isroot):
-                        for node in closelist:
+                        for node in closelist:#在colselist中寻找最优解路径
                             if(node.dot==temp.parentdot):
                                 temp=node
                                 break
@@ -56,7 +58,7 @@ def knight_der_find(si,sj,di,dj):
                     while(not next_layer_temp.empty()):
                         flag_node=True
                         node_temp=next_layer_temp.get()
-                        for node in closelist:
+                        for node in closelist:#判断节点是否已经经过
                             if(node.dot==node_temp.dot):
                                 flag_node=False
                                 break
