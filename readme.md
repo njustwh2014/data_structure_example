@@ -11,3 +11,4 @@
 # 统计黑格子问题
 ## count_black.py
 ![countblack](figure/count_black.png)
+![countblack](count_black.py)
