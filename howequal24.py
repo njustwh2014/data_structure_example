@@ -2,11 +2,19 @@ from random import randint
 from itertools import permutations
 
 #4个数字和2个运算符可能组成的表达式形式
-exps = ('((%s %s %s) %s %s) %s %s',
-        '(%s %s %s) %s (%s %s %s)',
-        '(%s %s (%s %s %s)) %s %s',
-        '%s %s ((%s %s %s) %s %s)',
-        '%s %s (%s %s (%s %s %s))')
+# exps = ('((%s %s %s) %s %s) %s %s',
+#         '(%s %s %s) %s (%s %s %s)',
+#         '(%s %s (%s %s %s)) %s %s',
+#         '%s %s ((%s %s %s) %s %s)',
+#         '%s %s (%s %s (%s %s %s))')
+exps=('%s %s %s %s %s %s %s',
+      '(%s %s %s) %s %s %s %s',
+      '%s %s (%s %s %s) %s %s',
+      '%s %s %s %s (%s %s %s)',
+      '%s %s(%s %s %s %s %s)',
+      '(%s %s %s %s %s) %s %s',
+      '(%s %s %s) %s (%s %s %s)')
+#分为无括号、一个括号、两个括号
 ops = r'+-*/'
 
 def test24(v):
