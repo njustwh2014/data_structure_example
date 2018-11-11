@@ -2,6 +2,23 @@ class Node():
     def __init__(self,data=0,next=0):
         self.data=data;
         self.next=next;
+class stack():
+    def __init__(self,s=[],top=-1):
+        self.top=top;
+        self.s=s;
+    def push(self,x):
+        self.top=self.top+1;
+        self.s.append(x);
+    def is_empty(self):
+        if(self.top==-1):
+            return True;
+        return False;
+    def pop(self):
+        if(self.is_empty()==True):
+            print("The Stack is empty!");
+        self.top=self.top-1;
+        return self.s.pop();
+
 
 class LinkList():
     def __init__(self):
@@ -184,17 +201,49 @@ class LinkList():
             midNode.next=tempSlow;
             slowNode=tempSlow;
             midNode=tempMid;
-
+    def SymmetryLinkList(self):
+        if(self.length==0):
+            return True;
+        j=0;
+        stack_prev=stack();
+        p=self.head;
+        jIndex=(int)(self.length/2);
+        while(j<jIndex):
+            stack_prev.push(p.data);
+            j=j+1;
+            p=p.next;
+        if(self.length%2==0):
+            if(p.data!=stack_prev.pop()):
+                return False;
+        p=p.next;
+        while(p!=0):
+            if(p.data!=stack_prev.pop()):
+                return False;
+            p=p.next;
+        return True;
 if __name__ == '__main__':
     linklist1=LinkList();
     # linklist1.printAll();
     for i in range(10):
         linklist1.append(i);
+    for i in range(9,-1,-1):
+        linklist1.append(i);
     linklist1.printAll();
     # linklist1.reorderList();
-    linklist1.reorderLinkList();
-    # linklist1.reverseLinkList_self();
+    # linklist1.reorderLinkList();
+    linklist1.reverseLinkList_self();
     linklist1.printAll();
+    print(linklist1.SymmetryLinkList());
+    linklist2=LinkList();
+    linklist2.append(1);
+    linklist2.append(2);
+    linklist2.append(3);
+    linklist2.append(4);
+    linklist2.append(3);
+    linklist2.append(2);
+    linklist2.append(1);
+    linklist2.printAll();
+    print(linklist2.SymmetryLinkList());
 
 
 
