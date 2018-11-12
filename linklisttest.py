@@ -1,23 +1,69 @@
+import random
 class Node():
     def __init__(self,data=0,next=0):
         self.data=data;
         self.next=next;
+
+
 class stack():
-    def __init__(self,s=[],top=-1):
-        self.top=top;
-        self.s=s;
-    def push(self,x):
-        self.top=self.top+1;
-        self.s.append(x);
+    def __init__(self):
+        self.top=0;
     def is_empty(self):
-        if(self.top==-1):
+        if(self.top==0):
             return True;
-        return False;
+        else:
+            return False;
+    def TopItem(self):
+        if(self.is_empty()):
+            return ;
+        else:
+            return self.top.data;
+    def push(self,x):
+        newNode=Node(x,self.top);
+        self.top=newNode;
     def pop(self):
-        if(self.is_empty()==True):
-            print("The Stack is empty!");
-        self.top=self.top-1;
-        return self.s.pop();
+        if(self.is_empty()):
+            return ;
+        else:
+            ret=self.top.data;
+            self.top=self.top.next;
+            return ret;
+
+    def printAll(self):
+        # just used for debug
+        if(self.is_empty()):
+            print("the stack is empty!");
+            return ;
+        tempStack=stack();
+        while(self.top!=0):
+            print(self.top.data,end=" ");
+            tempStack.push(self.pop());
+        while(tempStack.top!=0):
+            self.push(tempStack.pop());
+        print("");
+        return ;
+
+    def sort(self):
+        if (self.is_empty()):
+            print("the stack is empty!");
+            return;
+        tempStack=stack();
+        tempStack.push(self.pop());
+        while(not self.is_empty()):
+            x=self.pop();
+            j=0;
+            while(x<tempStack.TopItem()):
+                j=j+1;
+                self.push(tempStack.pop());
+                if(tempStack.is_empty()):
+                    break;
+            tempStack.push(x);
+            while(j!=0):
+                tempStack.push(self.pop());
+                j=j-1;
+        while(not tempStack.is_empty()):
+            self.push(tempStack.pop());
+
 
 
 class LinkList():
@@ -222,28 +268,33 @@ class LinkList():
             p=p.next;
         return True;
 if __name__ == '__main__':
-    linklist1=LinkList();
+    # linklist1=LinkList();
+    # # linklist1.printAll();
+    # for i in range(10):
+    #     linklist1.append(i);
+    # for i in range(9,-1,-1):
+    #     linklist1.append(i);
     # linklist1.printAll();
+    # # linklist1.reorderList();
+    # # linklist1.reorderLinkList();
+    # linklist1.reverseLinkList_self();
+    # linklist1.printAll();
+    # print(linklist1.SymmetryLinkList());
+    # linklist2=LinkList();
+    # linklist2.append(1);
+    # linklist2.append(2);
+    # linklist2.append(3);
+    # linklist2.append(4);
+    # linklist2.append(3);
+    # linklist2.append(2);
+    # linklist2.append(1);
+    # linklist2.printAll();
+    # print(linklist2.SymmetryLinkList());
+    stack1=stack();
     for i in range(10):
-        linklist1.append(i);
-    for i in range(9,-1,-1):
-        linklist1.append(i);
-    linklist1.printAll();
-    # linklist1.reorderList();
-    # linklist1.reorderLinkList();
-    linklist1.reverseLinkList_self();
-    linklist1.printAll();
-    print(linklist1.SymmetryLinkList());
-    linklist2=LinkList();
-    linklist2.append(1);
-    linklist2.append(2);
-    linklist2.append(3);
-    linklist2.append(4);
-    linklist2.append(3);
-    linklist2.append(2);
-    linklist2.append(1);
-    linklist2.printAll();
-    print(linklist2.SymmetryLinkList());
-
+        stack1.push(random.randint(1,10))
+    stack1.printAll();
+    stack1.sort();
+    stack1.printAll();
 
 
