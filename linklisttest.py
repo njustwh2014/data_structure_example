@@ -64,7 +64,24 @@ class stack():
         while(not tempStack.is_empty()):
             self.push(tempStack.pop());
 
-
+    def getStackBottomAndRemove(self):
+        #use recursion
+        #get stack bottom Item and remove it.
+        x=self.TopItem();
+        self.pop();
+        if(self.is_empty()):
+            return x;
+        last=self.getStackBottomAndRemove();
+        self.push(x);
+        return last;
+    def reverseStack(self):
+        # reverse Stack by recursion
+        if(self.is_empty()):
+            return ;
+        i=self.getStackBottomAndRemove();
+        self.reverseStack();
+        self.push(i);
+        return ;
 
 class LinkList():
     def __init__(self):
@@ -295,6 +312,8 @@ if __name__ == '__main__':
         stack1.push(random.randint(1,10))
     stack1.printAll();
     stack1.sort();
+    stack1.printAll();
+    stack1.reverseStack();
     stack1.printAll();
 
 
