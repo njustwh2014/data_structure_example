@@ -1,19 +1,11 @@
 import numpy as np
+from queue import Queue
 import sys
-#思路是遍历两边进行编号，按号码索引
-a=np.array([[0,0,0,0,1,0,1,1],
-            [0,1,1,0,1,0,0,0],
-            [0,1,0,1,1,1,0,1],
-            [0,0,0,0,1,0,1,0],
-            [0,0,1,0,0,1,0,1],
-            [0,1,0,0,1,1,1,1],
-            [0,0,1,1,0,1,0,0],
-            [0,0,0,1,0,1,0,1]],dtype=bool)
-print(a.shape)
-print(a.size)
-print(a.itemsize)
+
+
 
 def count_black(data):
+    # 思路是遍历两边进行编号，按号码索引
     lenRow=data.shape[0]
     lenColumn=data.shape[1]
     index_found = np.zeros((lenRow,lenColumn),dtype=int)
@@ -212,4 +204,53 @@ def count_black(data):
             maxsum=sumtemp
     return maxsum
 
-print(count_black(a))
+
+def bfs_count_black(data):
+    num_kind=1;
+    bfs_temp=Queue();
+    lenRow = data.shape[0];
+    lenColumn = data.shape[1];
+    index_found = np.zeros((lenRow, lenColumn), dtype=int)
+    next_node=np.array([(0,1),(1,0),(0,-1),(-1,0)])
+    for i in range(lenRow):
+        for j in range(lenColumn):
+            if(data[i][j]==1 and index_found[i][j]==0):
+                bfs_temp.put([i,j]);
+                num_kind=num_kind+1;
+                index_found[i][j]=num_kind;
+                while(not bfs_temp.empty()):
+                    temp_cursor=bfs_temp.get();
+                    for item in next_node:
+                        if((temp_cursor[0]+item[0])<0 or (temp_cursor[0]+item[0])>lenRow-1 or (temp_cursor[1]+item[1])<0 or (temp_cursor[1]+item[1])>lenColumn-1):
+                            #判断是否越界
+                            continue;
+                        if(data[temp_cursor[0]+item[0]][temp_cursor[1]+item[1]]==1 and index_found[temp_cursor[0]+item[0]][temp_cursor[1]+item[1]]==0):
+                            #判断为黑格子且未被遍历
+                            index_found[temp_cursor[0]+item[0]][temp_cursor[1]+item[1]]=num_kind;
+                            bfs_temp.put(temp_cursor+item);
+                        if(data[temp_cursor[0]+item[0]][temp_cursor[1]+item[1]]==0)  :
+                            index_found[temp_cursor[0] + item[0]][temp_cursor[1] + item[1]] = 1;
+            if(index_found[i][j]==0 and data[i][j]==0):
+                index_found[i][j] = 1;
+    num_kind_count=[0]*(num_kind+1);
+    for i in range(lenRow):
+        for j in range(lenColumn):
+            num_kind_count[index_found[i][j]]=num_kind_count[index_found[i][j]]+1;
+    num_kind_count=num_kind_count[2:];
+    num_kind_max=max(num_kind_count);
+    return num_kind_max;
+if __name__ == '__main__':
+    a = np.array([[0, 0, 0, 0, 1, 0, 1, 1],
+                  [0, 1, 1, 0, 1, 0, 0, 0],
+                  [0, 1, 0, 1, 1, 1, 0, 1],
+                  [0, 0, 0, 0, 1, 0, 1, 0],
+                  [0, 0, 1, 0, 0, 1, 0, 1],
+                  [0, 1, 0, 0, 1, 1, 1, 1],
+                  [0, 0, 1, 1, 0, 1, 0, 0],
+                  [0, 0, 0, 1, 0, 1, 0, 1]], dtype=bool)
+    # print(a.shape)
+    # print(a.size)
+    # print(a.itemsize)
+    print(count_black(a))
+    print(bfs_count_black(a))
+
