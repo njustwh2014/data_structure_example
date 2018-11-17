@@ -1,3 +1,4 @@
+from queue import Queue
 class Node():
     def __init__(self,data):
         self.data=data;
@@ -10,6 +11,43 @@ class BinaryTree():
 
     def is_empty(self):
         return True if self.root==None else False;
+
+    def build_binary_tree(self,data):
+        # '#' 表示该节点没有
+        # 默认输入数据没问题
+        newnode=Node(data[0]);
+        node_cur=Queue();
+
+        self.root=newnode;
+        node_cur.put(self.root);
+        temp_node=Node(0);
+        i=1;
+        while(i<len(data)):
+            cur=node_cur.get();
+            if(data[i]!='#'):
+                newnode=Node(data[i]);
+                cur.lchild=newnode;
+                node_cur.put(cur.lchild);
+            else:
+                if(cur==temp_node):
+                    node_cur.put(temp_node);
+                else:
+                    cur.lchild = None;
+                    node_cur.put(temp_node);
+
+            if(not (i+1<len(data))):
+                break;
+            if(data[i+1]!='#'):
+                newnode=Node(data[i+1]);
+                cur.rchild = newnode;
+                node_cur.put(cur.rchild);
+            else:
+                if (cur == temp_node):
+                    node_cur.put(temp_node);
+                else:
+                    cur.rchild = None;
+                    node_cur.put(temp_node);
+            i=i+2;
 
     def add(self,data):
         newnode=Node(data);
@@ -36,16 +74,21 @@ class BinaryTree():
             print("the binary tree is empty!");
             return [];
         else:
-            cursor=[]
+            cursor=Queue();
             data=[]
-            cursor.append(self.root);
-            while(cursor!=[]):
-                cur=cursor.pop();
+            cursor.put(self.root);
+            while(not cursor.empty()):
+                cur=cursor.get();
                 data.append(cur.data);
-                if(cur.rchild!=None):
-                    cursor.append(cur.rchild);
                 if(cur.lchild!=None):
-                    cursor.append((cur.lchild));
+                    cursor.put((cur.lchild));
+                if (cur.rchild != None):
+                    cursor.put(cur.rchild);
+                # 每一层从右往左遍历
+                # if (cur.rchild != None):
+                #     cursor.put(cur.rchild);
+                # if (cur.lchild != None):
+                #     cursor.put((cur.lchild));
             print(data); #just for debug
             return data;
 
@@ -91,11 +134,31 @@ class BinaryTree():
         print(data);
         return data;
 
+    def height(self,root_node):
+        if(root_node==None):
+            return 0;
+        height_left=self.height(root_node.lchild);
+        height_right=self.height(root_node.rchild);
+        return 1+(height_left if height_left>height_right else height_right);
+
+    def __is_balance__(self,root_node):
+        if(root_node==None):
+            return True;
+        height_left=self.height(root_node.lchild);
+        height_right=self.height(root_node.rchild);
+        if(abs(height_right-height_left)>1):
+            return False;
+        else:
+            return self.__is_balance__(root_node.lchild) and self.__is_balance__(root_node.rchild);
+
+    def is_balance(self):
+        return self.__is_balance__(self.root);
+
 if __name__ == '__main__':
+
     binaryTree1=BinaryTree();
-    for i in range(10):
-        binaryTree1.add(i);
-    binaryTree1.level_travelsal();
-    binaryTree1.preorder_travelsal();
+    binaryTree1.build_binary_tree([1,2,3,4,5,6,'#']);#'#'表示无此节点  [1,2,3,'#',4,5,6,'#','#',7]
     binaryTree1.inorder_travelsal();
-    binaryTree1.postorder_travelsal();
+    binaryTree1.preorder_travelsal();
+    binaryTree1.level_travelsal();
+    print(binaryTree1.is_balance())
