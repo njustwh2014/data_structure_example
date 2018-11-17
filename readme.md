@@ -58,6 +58,7 @@
 
 下面是完全二叉树的基本形态：
 ![complete_binary_tree](figure/complete_binary_tree.gif)
+
 完全二叉树的性质：
 
 1) 深度为k的完全二叉树，至少有$2^{(k-1)}$个节点，至多有$2^k-1$个节点。
@@ -73,6 +74,7 @@
 
 从树的外形来看，满二叉树是严格三角形的，大家记住下面的图，它就是满二叉树的标准形态：
 ![full_binary_tree](figure/full_binary_tree.jpg)
+
 所有内部节点都有两个子节点，最底一层是叶子节点。
 
 **性质：**
