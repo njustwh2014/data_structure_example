@@ -57,6 +57,7 @@
 满二叉树一定是完全二叉树，完全二叉树不一定是满二叉树。
 
 下面是完全二叉树的基本形态：
+
 ![complete_binary_tree](figure/complete_binary_tree.gif)
 
 完全二叉树的性质：
@@ -73,6 +74,7 @@
 这两种定义是等价的。
 
 从树的外形来看，满二叉树是严格三角形的，大家记住下面的图，它就是满二叉树的标准形态：
+
 ![full_binary_tree](figure/full_binary_tree.jpg)
 
 所有内部节点都有两个子节点，最底一层是叶子节点。
