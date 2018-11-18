@@ -1,9 +1,12 @@
 from queue import Queue
+
+
 class Node():
-    def __init__(self,data):
-        self.data=data;
-        self.lchild=None;
-        self.rchild=None;
+    def __init__(self, data, lchild=None, rchild=None):
+        self.data = data;
+        self.lchild = lchild;
+        self.rchild = rchild;
+
 
 class BinaryTree():
     def __init__(self):
@@ -226,6 +229,22 @@ class BinaryTree():
     def max_sum_child_tree(self):
         return self.__max_sum_child_tree__(self.root);
 
+    def find_x_nearest(self,data):
+        # 采用bfs
+        if(self.is_empty()):
+            return ;
+        nearest=self.root.data;#贪心哦
+        node_cur=Queue();
+        node_cur.put(self.root);
+        while(not node_cur.empty()):
+            cur=node_cur.get();
+            if(abs(cur.data-data)<abs(nearest-data)):
+                nearest=cur.data;
+            if(cur.lchild!=None):
+                node_cur.put(cur.lchild);
+            if(cur.rchild!=None):
+                node_cur.put(cur.rchild);
+        return nearest;
 if __name__ == '__main__':
 
     binaryTree1=BinaryTree();
@@ -238,3 +257,4 @@ if __name__ == '__main__':
     print(binaryTree1.is_balance())
     print(binaryTree1.length_leaf_node_with_weight_bfs())
     print(binaryTree1.max_sum_child_tree());
+    print(binaryTree1.find_x_nearest(-3));
