@@ -98,7 +98,9 @@
 ## 完全二叉树与满二叉树树高计算
 ![height_complete_and_full](figure/height_full_and_complete.png)
 
-
+# 无向图最小生成树的克鲁斯卡尔算法实现
+## [MST.py](MST.py)
+ [**参考(https://www.cnblogs.com/yoke/p/6697013.html)**](https://www.cnblogs.com/yoke/p/6697013.html)
 
 # 骑士周游问题
 ## [Knight_traveled_around.py](Knight_traveled_around.py)
