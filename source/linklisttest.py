@@ -284,11 +284,96 @@ class LinkList():
                 return False;
             p=p.next;
         return True;
+    def __quick_sort_location__(self,phead,pend):
+        if (phead == pend or phead.next == pend):
+            return phead;
+        key=phead.data;
+        pprev=phead;
+        plast=phead;
+        while(plast!=pend):
+            if(plast.data<key):
+                pprev=pprev.next;
+                temp=pprev.data;
+                pprev.data=plast.data;
+                plast.data=temp;
+            plast=plast.next;
+        if (plast.data < key):
+            pprev = pprev.next;
+            temp = pprev.data;
+            pprev.data = plast.data;
+            plast.data = temp;
+        phead.data=pprev.data;
+        pprev.data=key;
+        return pprev;
+
+
+    def __quick_sort__(self,phead,pend): #作业四：5.按照快速排序的思想，编写实现链表排序的算法。
+        if(phead==pend or phead.next==pend):
+            return ;
+        mid=self.__quick_sort_location__(phead,pend);
+        self.__quick_sort__(phead,mid);
+        self.__quick_sort__(mid.next,pend);
+
+    def quick_sort(self):
+        if(self.head==0 or self.head.next==0):
+            return;
+        p=self.head;
+        while(p.next!=0):
+            p=p.next;
+        self.__quick_sort__(self.head,p);
+
+    def __merge_sort__(self,phead):#作业四：6.按照归并排序的思想，编写实现链表排序的算法。
+        # 先判断链表长度是否大于1，小于1时无须排序
+        if (phead != 0 and phead.next != 0):
+
+            pfast=phead.next;
+            pslow=phead;
+            # 利用快慢指针找到链表的中间节点
+            while(pfast!=0 and pfast.next!=0):
+                pfast=pfast.next.next;
+                pslow=pslow.next;
+
+            # 递归实现归并排序
+
+            phead1=self.__merge_sort__(pslow.next);
+
+            pslow.next=0; #这个很重要
+            phead2=self.__merge_sort__(phead);
+
+            # 对子表进行合并
+            vphead=Node();
+            cur=vphead;#建立个伪头节点;
+            while(phead1!=0 and phead2!=0):
+                if(phead1.data<phead2.data):
+                    cur.next=phead1;
+                    phead1=phead1.next;
+                else:
+                    cur.next=phead2;
+                    phead2=phead2.next;
+                cur=cur.next;
+            if(phead1!=0):
+                cur.next=phead1;
+            if(phead2!=0):
+                cur.next=phead2;
+            return vphead.next;
+
+        return phead;
+    def merge_sort(self):
+        if(self.length<2):
+            return ;
+        self.head=self.__merge_sort__(self.head);
+
 if __name__ == '__main__':
-    # linklist1=LinkList();
-    # # linklist1.printAll();
-    # for i in range(10):
-    #     linklist1.append(i);
+    linklist1=LinkList();
+
+    for i in range(9):
+        linklist1.append(10-i);
+        # linklist1.append(random.randint(1,10));
+    linklist1.printAll();
+    # linklist1.quick_sort();
+    linklist1.merge_sort();
+    linklist1.printAll();
+
     # for i in range(9,-1,-1):
     #     linklist1.append(i);
     # linklist1.printAll();
@@ -307,13 +392,13 @@ if __name__ == '__main__':
     # linklist2.append(1);
     # linklist2.printAll();
     # print(linklist2.SymmetryLinkList());
-    stack1=stack();
-    for i in range(10):
-        stack1.push(random.randint(1,10))
-    stack1.printAll();
-    stack1.sort();
-    stack1.printAll();
-    stack1.reverseStack();
-    stack1.printAll();
+    # stack1=stack();
+    # for i in range(10):
+    #     stack1.push(random.randint(1,10))
+    # stack1.printAll();
+    # stack1.sort();
+    # stack1.printAll();
+    # stack1.reverseStack();
+    # stack1.printAll();
 
 

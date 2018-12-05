@@ -1,3 +1,4 @@
+import random
 class heap_min():
     def __init__(self,data=[]):
         self.data=data;
@@ -207,8 +208,15 @@ def get_median(data):
     return ret;
 
 
-
+def findmin10(data):#作业四:7.在N（N>=10万）个随机产生的数（对数的类型和范围没有限制）中找10个最小数，要求比较次数不大于1.2N。
+    heap_max_1=heap_max(data[0:9]);
+    for i in range(10,len(data)):
+        if(data[i]<heap_max_1.data[0]):
+            heap_max_1.delete();
+            heap_max_1.insert(data[i]);
+    return heap_max_1.data;
 if __name__ == '__main__':
+
     # heap_min1=heap_min([79,66,43,83,30,87,38,55,91,72,49,9])
     # heap_min1.print();
     # heap_min1.insert(1);
@@ -216,17 +224,22 @@ if __name__ == '__main__':
     # heap_min1.delete();
     # heap_min1.print();
     # print("*********************************************")
-    heap_max1=heap_max([6,4,5,3])
-    heap_max1.print();
-    heap_max1.insert(100);
-    heap_max1.print();
-    heap_max1.delete();
-    heap_max1.print();
-    heap_max1.delete();
-    heap_max1.print();
-
-    print("*********************************************")
-
-    data=[6, 4, 5, 8, 7, 9, 3, 4, 1, 2, 5, 8]
-    ret=get_median(data);
+    # heap_max1=heap_max([6,4,5,3])
+    # heap_max1.print();
+    # heap_max1.insert(100);
+    # heap_max1.print();
+    # heap_max1.delete();
+    # heap_max1.print();
+    # heap_max1.delete();
+    # heap_max1.print();
+    #
+    # print("*********************************************")
+    #
+    # data=[6, 4, 5, 8, 7, 9, 3, 4, 1, 2, 5, 8]
+    # ret=get_median(data);
+    # print(ret);
+    data=[];
+    for i in range(100000):
+        data.append(random.randint(1,100000));
+    ret=findmin10(data);
     print(ret);

@@ -1,5 +1,5 @@
 # 链表重排问题
-## [linklisttest.py](./source/linklisttest.py)
+## [linklisttest.py](linklisttest.py)
 给定一个单链表 L：L0→L1→…→Ln-1→Ln ，
 将其重新排列后变为： L0→Ln→L1→Ln-1→L2→Ln-2→…
 
@@ -13,7 +13,7 @@
 给定链表 1->2->3->4->5, 重新排列为 1->5->2->4->3.
 
 # Stack操作
-## [StackTest.py](./source/StackTest.py)
+## [StackTest.py](StackTest.py)
 
 * 试设计算法，将栈S中的元素排序。要求不用辅助数据结构，仅通过对S自身的操作完成S中元素的排序。PS:我还是利用了两个栈，不符合题意。
 
@@ -21,7 +21,7 @@
 
 # 树、二叉树、满二叉树、完全二叉树
 
-## [binaryTree.py](./source/binaryTree.py)
+## [binaryTree.py](binaryTree.py)
 
 ## 自由树
 自由树是一个连通的、无回路的无向图。下面表述是等价的。
@@ -99,25 +99,25 @@
 ![height_complete_and_full](figure/height_full_and_complete.png)
 
 # 无向图最小生成树的克鲁斯卡尔算法实现
-## [MST.py](./source/MST.py)
+## [MST.py](MST.py)
  [**参考(https://www.cnblogs.com/yoke/p/6697013.html)**](https://www.cnblogs.com/yoke/p/6697013.html)
 
 # 骑士周游问题
-## [Knight_traveled_around.py](./source/Knight_traveled_around.py)
-## [Knight_dst.py](./source/knight_dst.py) 解决思考题
+## [Knight_traveled_around.py](Knight_traveled_around.py)
+## [Knight_dst.py](knight_dst.py) 解决思考题
 ![knight_1](figure/knight_1.png)
 ![knight_2](figure/knight_2.png)
 
 # 八数码问题
-## [eightnumques.py](./source/eightnumques.py)
+## [eightnumques.py](eightnumques.py)
 ![eightnumques](figure/eight_num1.png)
 
 # 统计黑格子问题
-## [countblack.py](./source/count_black.py)
+## [countblack.py](count_black.py)
 ![countblack](figure/count_black.png)
 
 # 计算24点问题
-## [howequal24.py](./source/howequal24.py)
+## [howequal24.py](howequal24.py)
 ![cal24](figure/cal24.png)
 
 
