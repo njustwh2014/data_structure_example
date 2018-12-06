@@ -1,124 +1,353 @@
-# 链表重排问题
-## [linklisttest.py](linklisttest.py)
-给定一个单链表 L：L0→L1→…→Ln-1→Ln ，
-将其重新排列后变为： L0→Ln→L1→Ln-1→L2→Ln-2→…
+**王欢** **学号：220181499**
+**github:** https://github.com/njustwh2014/data_structure_example
 
-你不能只是单纯的改变节点内部的值，而是需要实际的进行节点交换。
-
-示例 1:
-
-给定链表 1->2->3->4, 重新排列为 1->4->2->3.
-示例 2:
-
-给定链表 1->2->3->4->5, 重新排列为 1->5->2->4->3.
-
-# Stack操作
-## [StackTest.py](StackTest.py)
-
-* 试设计算法，将栈S中的元素排序。要求不用辅助数据结构，仅通过对S自身的操作完成S中元素的排序。PS:我还是利用了两个栈，不符合题意。
-
-* 现有栈S，试设计算法，将S中的元素逆置。要求不用辅助数据结构，仅通过对S自身的操作完成S中元素的逆置。
-
-# 树、二叉树、满二叉树、完全二叉树
-
-## [binaryTree.py](binaryTree.py)
-
-## 自由树
-自由树是一个连通的、无回路的无向图。下面表述是等价的。
-
-* G是自由树
-* G中任意两个顶点由唯一一条简单路径得到。
-* G是连通的，但从E中去掉任何边后得到的图都是非连通的。
-* G是无回路的，且|E|=|V|-1。
-* G是连通的，且|E|=|V|-1。
-* G是无回路的，但添加任何边到E中得到的图包含回路。
-
-## 二叉树
-在计算机科学中，**二叉树**是每个节点最多有两个子树的树结构。通常子树被称作“左子树”（left subtree）和“右子树”（right subtree）。二叉树的每个结点至多只有二棵子树(不存在度大于2的结点)，二叉树的子树有左右之分，次序不能颠倒。
-
-二叉树的第i层至多有$2^{(i-1)}$个结点；
-
-深度为k的二叉树至多有$2^k-1$个结点；（等比数列$1+2+4+\cdots+2^{(k-1)} = 2^k-1$）。
-
-对任何一棵二叉树T，如果其终端结点数为$n_0$，度为2的结点数为$n_2$，则$n_0 = n_2 + 1$。
-
-树和二叉树的三个主要差别：
-
-1)  树的结点个数至少为1，而二叉树的结点个数可以为0；
-
-2)  树中结点的最大度数没有限制，而二叉树结点的最大度数为2；
-
-3)  树的结点无左、右之分，而二叉树的结点有左、右之分。
-
-## 完全二叉树
-
-* 完全二叉树是由满二叉树而引出来的。对于深度为K的，有n个结点的二叉树，当且仅当其每一个结点都与深度为K的满二叉树中编号从1至n的结点一一对应时称之为完全二叉树。
-
-* 若设二叉树的深度为h，除第h层外，其它各层(1～h-1)的结点数都达到最大个数，第h层所有的结点都连续集中在最左边，这就是完全二叉树。
-
-满二叉树一定是完全二叉树，完全二叉树不一定是满二叉树。
-
-下面是完全二叉树的基本形态：
-
-![complete_binary_tree](figure/complete_binary_tree.gif)
-
-完全二叉树的性质：
-
-1) 深度为k的完全二叉树，至少有$2^{(k-1)}$个节点，至多有$2^k-1$个节点。
-
-2) 树高$h=log2n + 1$。
-
-## 满二叉树
-一棵深度为k，且有$2^k-1$个节点的树是满二叉树。
-
-另一种定义：除了叶结点外每一个结点都有左右子叶且叶子结点都处在最底层的二叉树。
-
-这两种定义是等价的。
-
-从树的外形来看，满二叉树是严格三角形的，大家记住下面的图，它就是满二叉树的标准形态：
-
-![full_binary_tree](figure/full_binary_tree.jpg)
-
-所有内部节点都有两个子节点，最底一层是叶子节点。
-
-**性质：**
-
-1) 如果一颗树深度为h，最大层数为k，且深度与最大层数相同，即k=h;
-
-2) 它的叶子数是:$2^{(h-1)}$
-
-3) 第k层的结点数是:$2^{(k-1)}$
-
-4) 总结点数是:$2^k-1$ 
-
-5) 总节点数一定是奇数。
-
-6) 树高:$h=log2(n+1)$。
-
-## 完全二叉树与满二叉树树高计算
-![height_complete_and_full](figure/height_full_and_complete.png)
-
-# 无向图最小生成树的克鲁斯卡尔算法实现
-## [MST.py](MST.py)
- [**参考(https://www.cnblogs.com/yoke/p/6697013.html)**](https://www.cnblogs.com/yoke/p/6697013.html)
-
-# 骑士周游问题
-## [Knight_traveled_around.py](Knight_traveled_around.py)
-## [Knight_dst.py](knight_dst.py) 解决思考题
-![knight_1](figure/knight_1.png)
-![knight_2](figure/knight_2.png)
-
-# 八数码问题
-## [eightnumques.py](eightnumques.py)
-![eightnumques](figure/eight_num1.png)
-
-# 统计黑格子问题
-## [countblack.py](count_black.py)
-![countblack](figure/count_black.png)
-
-# 计算24点问题
-## [howequal24.py](howequal24.py)
-![cal24](figure/cal24.png)
+# 非线性结构--图和排序
+#### 对于有n个顶点的有向图G，设计算法，找出G中长度为k（k<=n）的路径条数。
+![graph1](figure/graph1.png)
+例如：上图中1到2长度为2的路径有1（132）条，长度为3的路有2条（1212,1232）。2到3的长度为2的路径有2条（203，213），长度为3的路径有3条（2013，2123，2323）
 
 
+#### 试编写程序，实现最小生成树的克鲁斯卡尔算法。
+```python
+# 用Kruskal算法实现最小生成树
+#建立并查集 搜索Find 合并连通域Union
+import numpy as np
+class MST():
+    def __init__(self,edges=np.array([]),n=0,m=0):
+        self.edges=edges;#无向图边的信息 格式：u v w u和v是顶点编号，从1开始，w是边的权重。
+        self.n=n;#无向图的顶点数
+        self.m=m;#无向图的边数
+        self.parent=[-1]*(n+1);#建立每个顶点所在连通域的根节点
+        self.edges=self.edges[np.lexsort(self.edges.T)];
+        self.mst=np.array([]);
+    def __find__(self,x):
+        s=x;
+        while(s>=0 and self.parent[s]>=0):
+            s=self.parent[s];
+        while(s!=x):#压缩搜索路径
+            temp=self.parent[x];
+            self.parent[x]=s;
+            x=temp;
+        return s;
 
+    def __union__(self,N1,N2):#合并两个节点所在的连通域
+        r1=self.__find__(N1);
+        r2=self.__find__(N2);
+        temp=self.parent[r1]+self.parent[r2];
+        if(self.parent[r1]>self.parent[r2]):
+            self.parent[r2]=r1;
+            self.parent[r1]=temp;
+        else:
+            self.parent[r1]=r2;
+            self.parent[r2]=temp;
+
+    def kruskal(self):
+        sumweight=0;
+        num=0;
+        for item in self.edges:
+            if(self.__find__(item[0])!=self.__find__(item[1])):
+                sumweight=sumweight+item[2];
+                num=num+1;
+                if(num==1):
+                    self.mst=np.array([item]);
+                else:
+                    self.__union__(item[0], item[1]);
+                    item_x=np.array(item);
+                    self.mst=np.insert(self.mst,0,values=item_x,axis=0);
+            if(num>self.n-1):
+                break
+        return self.mst,sumweight;
+```
+
+#### 试设计算法，找出给定DAG（有向无环图）中所有可能的拓扑序列。
+```python
+```
+
+#### 编写算法，实现图的m着色（可参照韦尔奇.鲍威尔(Welch Powell) 方法）
+
+#### 按照快速排序的思想，编写实现链表排序的算法。
+```python
+class Node():
+    def __init__(self,data=0,next=0):
+        self.data=data;
+        self.next=next;
+class LinkList():
+    def __init__(self):
+        self.head=0;
+        self.length=0;
+    def is_empty(self):
+        if(self.head==0):
+            return True;
+        else:
+            return False;
+
+    def get_item(self,data):
+        if(self.is_empty()==True):
+            print("The LinkList is empty!");
+            return -1;
+        else:
+            j=0;
+            p=self.head;
+            while(p.next!=0):
+                if(data==p.data):
+                    return j;
+                else:
+                    p=p.next;
+                    j=j+1;
+            if (data == p.data):
+                return j;
+            print("Objects that do not exist in the linked list!");
+            return -1;
+
+    def append(self,data):
+        if(self.is_empty()==True):
+            newNode=Node(data);
+            self.head=newNode;
+            self.length=self.length+1;
+        else:
+            newNode=Node(data);
+            p=self.head;
+            while(p.next!=0):
+                p=p.next;
+            p.next=newNode;
+            self.length=self.length+1;
+
+    def insert(self,data,index):
+        if(index<0 and index>self.length):
+            print("the index is wrong!");
+            return False;
+        j=0;
+        p=self.head;
+        while(j<index):
+            p=p.next;
+            j=j+1;
+        newNode=Node(data);
+        pnext=p.next;
+        p.next=newNode;
+        newNode.next=pnext;
+        self.length=self.length+1;
+        return True;
+
+    def get_length(self):
+        return self.length;
+
+    def delete(self,data):
+        if(self.get_item(data)==-1):
+            print("Objects that do not exist in the linked list!");
+            return False;
+        p=self.head;
+        pfront=0;
+        if(self.head.data==data):
+            self.head=0;
+            self.length=0;
+            return True;
+        pfront=p;
+        p=p.next;
+        while(p.next!=0):
+            if(p.data==data):
+                pfront.next=p.next;
+                self.length=self.length-1;
+                return True;
+            else:
+                pfront=p;
+                p=p.next;
+        if(p.data==data):
+            pfront.next = p.next;
+            self.length = self.length - 1;
+            return True;
+        return False;
+    def printAll(self):
+        if(self.length==0):
+            print("the linklist is empty!");
+            return ;
+        p=self.head;
+        print("there are {} nodes:".format(self.length));
+        while(p.next!=0):
+            print(p.data,end=" ");
+            p=p.next;
+        print(p.data);
+        return ;
+
+    def __quick_sort_location__(self,phead,pend):
+        if (phead == pend or phead.next == pend):
+            return phead;
+        key=phead.data;
+        pprev=phead;
+        plast=phead;
+        while(plast!=pend):
+            if(plast.data<key):
+                pprev=pprev.next;
+                temp=pprev.data;
+                pprev.data=plast.data;
+                plast.data=temp;
+            plast=plast.next;
+        if (plast.data < key):
+            pprev = pprev.next;
+            temp = pprev.data;
+            pprev.data = plast.data;
+            plast.data = temp;
+        phead.data=pprev.data;
+        pprev.data=key;
+        return pprev;
+
+
+    def __quick_sort__(self,phead,pend): #作业四：5.按照快速排序的思想，编写实现链表排序的算法。
+        if(phead==pend or phead.next==pend):
+            return ;
+        mid=self.__quick_sort_location__(phead,pend);
+        self.__quick_sort__(phead,mid);
+        self.__quick_sort__(mid.next,pend);
+
+    def quick_sort(self):
+        if(self.head==0 or self.head.next==0):
+            return;
+        p=self.head;
+        while(p.next!=0):
+            p=p.next;
+        self.__quick_sort__(self.head,p);
+```
+
+#### 按照归并排序的思想，编写实现链表排序的算法。
+```python
+class Node():
+    def __init__(self,data=0,next=0):
+        self.data=data;
+        self.next=next;
+class LinkList():
+    def __init__(self):
+        self.head=0;
+        self.length=0;
+    def is_empty(self):
+        if(self.head==0):
+            return True;
+        else:
+            return False;
+
+    def get_item(self,data):
+        if(self.is_empty()==True):
+            print("The LinkList is empty!");
+            return -1;
+        else:
+            j=0;
+            p=self.head;
+            while(p.next!=0):
+                if(data==p.data):
+                    return j;
+                else:
+                    p=p.next;
+                    j=j+1;
+            if (data == p.data):
+                return j;
+            print("Objects that do not exist in the linked list!");
+            return -1;
+
+    def append(self,data):
+        if(self.is_empty()==True):
+            newNode=Node(data);
+            self.head=newNode;
+            self.length=self.length+1;
+        else:
+            newNode=Node(data);
+            p=self.head;
+            while(p.next!=0):
+                p=p.next;
+            p.next=newNode;
+            self.length=self.length+1;
+
+    def insert(self,data,index):
+        if(index<0 and index>self.length):
+            print("the index is wrong!");
+            return False;
+        j=0;
+        p=self.head;
+        while(j<index):
+            p=p.next;
+            j=j+1;
+        newNode=Node(data);
+        pnext=p.next;
+        p.next=newNode;
+        newNode.next=pnext;
+        self.length=self.length+1;
+        return True;
+
+    def get_length(self):
+        return self.length;
+
+    def delete(self,data):
+        if(self.get_item(data)==-1):
+            print("Objects that do not exist in the linked list!");
+            return False;
+        p=self.head;
+        pfront=0;
+        if(self.head.data==data):
+            self.head=0;
+            self.length=0;
+            return True;
+        pfront=p;
+        p=p.next;
+        while(p.next!=0):
+            if(p.data==data):
+                pfront.next=p.next;
+                self.length=self.length-1;
+                return True;
+            else:
+                pfront=p;
+                p=p.next;
+        if(p.data==data):
+            pfront.next = p.next;
+            self.length = self.length - 1;
+            return True;
+        return False;
+    def printAll(self):
+        if(self.length==0):
+            print("the linklist is empty!");
+            return ;
+        p=self.head;
+        print("there are {} nodes:".format(self.length));
+        while(p.next!=0):
+            print(p.data,end=" ");
+            p=p.next;
+        print(p.data);
+        return ;
+
+    def __merge_sort__(self,phead):#作业四：6.按照归并排序的思想，编写实现链表排序的算法。
+        # 先判断链表长度是否大于1，小于1时无须排序
+        if (phead != 0 and phead.next != 0):
+
+            pfast=phead.next;
+            pslow=phead;
+            # 利用快慢指针找到链表的中间节点
+            while(pfast!=0 and pfast.next!=0):
+                pfast=pfast.next.next;
+                pslow=pslow.next;
+
+            # 递归实现归并排序
+
+            phead1=self.__merge_sort__(pslow.next);
+
+            pslow.next=0; #这个很重要
+            phead2=self.__merge_sort__(phead);
+
+            # 对子表进行合并
+            vphead=Node();
+            cur=vphead;#建立个伪头节点;
+            while(phead1!=0 and phead2!=0):
+                if(phead1.data<phead2.data):
+                    cur.next=phead1;
+                    phead1=phead1.next;
+                else:
+                    cur.next=phead2;
+                    phead2=phead2.next;
+                cur=cur.next;
+            if(phead1!=0):
+                cur.next=phead1;
+            if(phead2!=0):
+                cur.next=phead2;
+            return vphead.next;
+
+        return phead;
+    def merge_sort(self):
+        if(self.length<2):
+            return ;
+        self.head=self.__merge_sort__(self.head);
+```
