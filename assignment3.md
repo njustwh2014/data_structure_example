@@ -1,124 +1,345 @@
-# 链表重排问题
-## [linklisttest.py](linklisttest.py)
-给定一个单链表 L：L0→L1→…→Ln-1→Ln ，
-将其重新排列后变为： L0→Ln→L1→Ln-1→L2→Ln-2→…
+**王欢** **学号：220181499**
+**github:** https://github.com/njustwh2014/data_structure_example
 
-你不能只是单纯的改变节点内部的值，而是需要实际的进行节点交换。
+# 非线性结构--树
 
-示例 1:
+#### 二叉树算法的调试过程中常常需要直观的了解二叉树的构成和形状。试编写算法，在字符界面上输出给定的二叉树.
+![tree_binary](figure/tree_binary.png)
 
-给定链表 1->2->3->4, 重新排列为 1->4->2->3.
-示例 2:
+```python
 
-给定链表 1->2->3->4->5, 重新排列为 1->5->2->4->3.
+```
 
-# Stack操作
-## [StackTest.py](StackTest.py)
-
-* 试设计算法，将栈S中的元素排序。要求不用辅助数据结构，仅通过对S自身的操作完成S中元素的排序。PS:我还是利用了两个栈，不符合题意。
-
-* 现有栈S，试设计算法，将S中的元素逆置。要求不用辅助数据结构，仅通过对S自身的操作完成S中元素的逆置。
-
-# 树、二叉树、满二叉树、完全二叉树
-
-## [binaryTree.py](binaryTree.py)
-
-## 自由树
-自由树是一个连通的、无回路的无向图。下面表述是等价的。
-
-* G是自由树
-* G中任意两个顶点由唯一一条简单路径得到。
-* G是连通的，但从E中去掉任何边后得到的图都是非连通的。
-* G是无回路的，且|E|=|V|-1。
-* G是连通的，且|E|=|V|-1。
-* G是无回路的，但添加任何边到E中得到的图包含回路。
-
-## 二叉树
-在计算机科学中，**二叉树**是每个节点最多有两个子树的树结构。通常子树被称作“左子树”（left subtree）和“右子树”（right subtree）。二叉树的每个结点至多只有二棵子树(不存在度大于2的结点)，二叉树的子树有左右之分，次序不能颠倒。
-
-二叉树的第i层至多有$2^{(i-1)}$个结点；
-
-深度为k的二叉树至多有$2^k-1$个结点；（等比数列$1+2+4+\cdots+2^{(k-1)} = 2^k-1$）。
-
-对任何一棵二叉树T，如果其终端结点数为$n_0$，度为2的结点数为$n_2$，则$n_0 = n_2 + 1$。
-
-树和二叉树的三个主要差别：
-
-1)  树的结点个数至少为1，而二叉树的结点个数可以为0；
-
-2)  树中结点的最大度数没有限制，而二叉树结点的最大度数为2；
-
-3)  树的结点无左、右之分，而二叉树的结点有左、右之分。
-
-## 完全二叉树
-
-* 完全二叉树是由满二叉树而引出来的。对于深度为K的，有n个结点的二叉树，当且仅当其每一个结点都与深度为K的满二叉树中编号从1至n的结点一一对应时称之为完全二叉树。
-
-* 若设二叉树的深度为h，除第h层外，其它各层(1～h-1)的结点数都达到最大个数，第h层所有的结点都连续集中在最左边，这就是完全二叉树。
-
-满二叉树一定是完全二叉树，完全二叉树不一定是满二叉树。
-
-下面是完全二叉树的基本形态：
-
-![complete_binary_tree](figure/complete_binary_tree.gif)
-
-完全二叉树的性质：
-
-1) 深度为k的完全二叉树，至少有$2^{(k-1)}$个节点，至多有$2^k-1$个节点。
-
-2) 树高$h=log2n + 1$。
-
-## 满二叉树
-一棵深度为k，且有$2^k-1$个节点的树是满二叉树。
-
-另一种定义：除了叶结点外每一个结点都有左右子叶且叶子结点都处在最底层的二叉树。
-
-这两种定义是等价的。
-
-从树的外形来看，满二叉树是严格三角形的，大家记住下面的图，它就是满二叉树的标准形态：
-
-![full_binary_tree](figure/full_binary_tree.jpg)
-
-所有内部节点都有两个子节点，最底一层是叶子节点。
-
-**性质：**
-
-1) 如果一颗树深度为h，最大层数为k，且深度与最大层数相同，即k=h;
-
-2) 它的叶子数是:$2^{(h-1)}$
-
-3) 第k层的结点数是:$2^{(k-1)}$
-
-4) 总结点数是:$2^k-1$ 
-
-5) 总节点数一定是奇数。
-
-6) 树高:$h=log2(n+1)$。
-
-## 完全二叉树与满二叉树树高计算
-![height_complete_and_full](figure/height_full_and_complete.png)
-
-# 无向图最小生成树的克鲁斯卡尔算法实现
-## [MST.py](MST.py)
- [**参考(https://www.cnblogs.com/yoke/p/6697013.html)**](https://www.cnblogs.com/yoke/p/6697013.html)
-
-# 骑士周游问题
-## [Knight_traveled_around.py](Knight_traveled_around.py)
-## [Knight_dst.py](knight_dst.py) 解决思考题
-![knight_1](figure/knight_1.png)
-![knight_2](figure/knight_2.png)
-
-# 八数码问题
-## [eightnumques.py](eightnumques.py)
-![eightnumques](figure/eight_num1.png)
-
-# 统计黑格子问题
-## [countblack.py](count_black.py)
-![countblack](figure/count_black.png)
-
-# 计算24点问题
-## [howequal24.py](howequal24.py)
-![cal24](figure/cal24.png)
+#### 若树中任一结点的左右子树高度之差的绝对值不大于1，则称该树是平衡的。试编写线性时间复杂度的算法，判断给定二叉树是否是平衡的。
 
 
 
+#### 若遍历二叉树T的方式是：第一层从左到右，然后第二层从右到左，再然后第三层从左到右，……。试编写算法实现这样的遍历。
+
+![tree1](figure/tree1.png)
+遍历结果为：7, 15, 6, 3, 10, 17, 20, 12, 4, 1
+
+#### 二叉树中两结点之间的距离为连接两结点的分支数。定义二叉树的直径为树中任意两个不同结点之间距离的最大值，试编写算法，求任意二叉树的直径。
+
+#### 计算二叉树T的带权路径长度。（带权路径长度定义为各叶结点所带的权值与该结点到根的路径长度的乘积的和）
+
+#### 设a是T中的一个结点，a及a的所有的子孙结点组成的树被称为T的一棵子树，a是这棵子树的根。 试设计算法，找出给定树中其结点值之和为最大的子树的和（T中结点的值可正可负）。
+
+#### 试编写算法，找出二叉搜索树中与指定值k最接近的关键码。
+
+
+**以上各题代码实现**
+```python
+from queue import Queue
+
+
+class Node():
+    def __init__(self, data, lchild=None, rchild=None):
+        self.data = data;
+        self.lchild = lchild;
+        self.rchild = rchild;
+
+
+class BinaryTree():
+    def __init__(self):
+        self.root=None;
+
+    def is_empty(self):
+        return True if self.root==None else False;
+
+    def build_binary_tree(self,data):#按层次建立二叉树，类似leetcode的测试。
+        # '#' 表示该节点没有
+        # 默认输入数据没问题
+        newnode=Node(data[0]);
+        node_cur=Queue();
+
+        self.root=newnode;
+        node_cur.put(self.root);
+        temp_node=Node(0);
+        i=1;
+        while(i<len(data)):
+            cur=node_cur.get();
+            if(data[i]!='#'):
+                newnode=Node(data[i]);
+                cur.lchild=newnode;
+                node_cur.put(cur.lchild);
+            else:
+                if(cur==temp_node):
+                    node_cur.put(temp_node);
+                else:
+                    cur.lchild = None;
+                    node_cur.put(temp_node);
+
+            if(not (i+1<len(data))):
+                break;
+            if(data[i+1]!='#'):
+                newnode=Node(data[i+1]);
+                cur.rchild = newnode;
+                node_cur.put(cur.rchild);
+            else:
+                if (cur == temp_node):
+                    node_cur.put(temp_node);
+                else:
+                    cur.rchild = None;
+                    node_cur.put(temp_node);
+            i=i+2;
+
+
+
+    def add(self,data):
+        newnode=Node(data);
+        if(self.is_empty()):
+            self.root=newnode;
+            return ;
+        else:
+            temp=[];
+            temp.append(self.root);
+            while True:
+                cur = temp.pop();
+                if(cur.lchild==None):
+                    cur.lchild=newnode;
+                    return ;
+                elif(cur.rchild==None):
+                    cur.rchild=newnode;
+                    return ;
+                else:
+                    temp.append(cur.rchild);
+                    temp.append(cur.lchild);
+    def level_travelsal(self):
+        # I think hierarchical traversal is similar to breadth-first search.
+        if(self.is_empty()):
+            print("the binary tree is empty!");
+            return [];
+        else:
+            cursor=Queue();
+            data=[]
+            cursor.put(self.root);
+            while(not cursor.empty()):
+                cur=cursor.get();
+                data.append(cur.data);
+                if(cur.lchild!=None):
+                    cursor.put((cur.lchild));
+                if (cur.rchild != None):
+                    cursor.put(cur.rchild);
+                # 每一层从右往左遍历
+                # if (cur.rchild != None):
+                #     cursor.put(cur.rchild);
+                # if (cur.lchild != None):
+                #     cursor.put((cur.lchild));
+            print(data); #just for debug
+            return data;
+
+    def __preorder_travelsal__(self,root):
+        if (root==None):
+            return [];
+        else:
+            data=[root.data];
+            data1=self.__preorder_travelsal__(root.lchild);
+            data2=self.__preorder_travelsal__(root.rchild);
+            return data+data1+data2;
+
+    def __inorder_travelsal__(self,root):
+        if (root == None):
+            return [];
+        else:
+            data1 = self.__inorder_travelsal__(root.lchild);
+            data = [root.data];
+            data2 = self.__inorder_travelsal__(root.rchild);
+        return data1+data+data2;
+
+    def __postorder_travelsal__(self,root):
+        if (root == None):
+            return [];
+        else:
+            data1 = self.__postorder_travelsal__(root.lchild);
+            data2 = self.__postorder_travelsal__(root.rchild);
+            data = [root.data];
+        return data1+data2+data;
+
+    def preorder_travelsal(self):
+        data=self.__preorder_travelsal__(self.root);
+        print(data);
+        return data;
+
+    def inorder_travelsal(self):
+        data=self.__inorder_travelsal__(self.root);
+        print(data);
+        return data;
+
+    def postorder_travelsal(self):
+        data=self.__postorder_travelsal__(self.root);
+        print(data);
+        return data;
+
+    def __height__(self,root_node):
+        if(root_node==None):
+            return 0;
+        height_left=self.__height__(root_node.lchild);
+        height_right=self.__height__(root_node.rchild);
+        return 1+(height_left if height_left>height_right else height_right);
+    def height(self):
+        return self.__height__(self.root);
+
+    def __diameter__(self,root_node):
+        if(root_node==None):
+            return 0;
+        height_left=self.__height__(root_node.lchild);
+        height_right=self.__height__(root_node.rchild);
+
+        diameter_left=self.__diameter__(root_node.lchild);
+        diameter_right=self.__diameter__(root_node.rchild);
+
+        return max((height_left+height_right+1),diameter_left,diameter_right);
+
+    def diameter(self):
+        return self.__diameter__(self.root);
+
+    def __is_balance__(self,root_node):
+        if(root_node==None):
+            return True;
+        height_left=self.__height__(root_node.lchild);
+        height_right=self.__height__(root_node.rchild);
+        if(abs(height_right-height_left)>1):
+            return False;
+        else:
+            return self.__is_balance__(root_node.lchild) and self.__is_balance__(root_node.rchild);
+
+    def is_balance(self):
+        return self.__is_balance__(self.root);
+
+    def length_leaf_node_with_weight_bfs(self):
+        # 广度优先搜索
+        if(self.is_empty()):
+            return 0;
+        last=None;# 记录每层结束
+        sum=0; # return value
+        level=1; #sequence of level
+        node_cur=Queue() # queue to save node
+        last_input_queue=None;#用于特殊情况
+        node_cur.put(self.root)
+        last_input_queue=self.root;
+        last=self.root;
+        while(not node_cur.empty()):
+            flag_last=False;# Determine if the current node is the rightmost node of the current level.
+            cur=node_cur.get();
+            if(last==cur):
+                flag_last=True;
+            if(cur.lchild!=None):
+                node_cur.put(cur.lchild);
+                last_input_queue=cur.lchild;
+                if(cur.rchild==None and flag_last):
+                    last=cur.lchild;
+            if(cur.rchild!=None):
+                node_cur.put(cur.rchild);
+                last_input_queue=cur.rchild;
+                if(flag_last):
+                    level=level+1;
+                    last=cur.rchild;
+            if(cur.rchild==None and cur.lchild==None):
+                sum=sum+cur.data*level;
+                if(flag_last):
+                    last=last_input_queue;
+        return sum;
+
+
+    def __sum_child_tree__(self,root_node):
+        if(root_node==None):
+            return 0;
+        sum_lchild=self.__sum_child_tree__(root_node.lchild);
+        sum_rchild=self.__sum_child_tree__(root_node.rchild);
+        sum=root_node.data+sum_lchild+sum_rchild;
+        return sum;
+
+    def __max_sum_child_tree__(self,root_node):
+        if(root_node==None):
+            return -999; #default the minimum number.
+        sum_lchild=self.__sum_child_tree__(root_node.lchild);
+        sum_rchild=self.__sum_child_tree__(root_node.rchild);
+
+        max_sum_lchild=self.__max_sum_child_tree__(root_node.lchild);
+        max_sum_rchild=self.__max_sum_child_tree__(root_node.rchild);
+        return max(sum_lchild+sum_rchild+root_node.data,max_sum_lchild,max_sum_rchild);
+
+    def max_sum_child_tree(self):
+        return self.__max_sum_child_tree__(self.root);
+
+    def find_x_nearest(self,data):
+        # 采用bfs
+        if(self.is_empty()):
+            return ;
+        nearest=self.root.data;#贪心哦
+        node_cur=Queue();
+        node_cur.put(self.root);
+        while(not node_cur.empty()):
+            cur=node_cur.get();
+            if(abs(cur.data-data)<abs(nearest-data)):
+                nearest=cur.data;
+            if(cur.lchild!=None):
+                node_cur.put(cur.lchild);
+            if(cur.rchild!=None):
+                node_cur.put(cur.rchild);
+        return nearest;
+if __name__ == '__main__':
+
+    binaryTree1=BinaryTree();
+    binaryTree1.build_binary_tree([1,2,3,4,5,-6,'#']);#'#'表示无此节点  [1,2,3,'#',4,5,6,'#','#',7]
+    binaryTree1.inorder_travelsal();
+    binaryTree1.preorder_travelsal();
+    binaryTree1.level_travelsal();
+    print(binaryTree1.height());
+    print(binaryTree1.diameter());
+    print(binaryTree1.is_balance())
+    print(binaryTree1.length_leaf_node_with_weight_bfs())
+    print(binaryTree1.max_sum_child_tree());
+    print(binaryTree1.find_x_nearest(-3));
+```
+#### 对于一个由随机生成的数字组成的数据流，请设计一个最坏情况下时间复杂度为log2n（n为当前接收到的元素个数）的算法，计算出当前已接收到的所有数字的中位数（若传入了偶数个数字则令中位数为中间两个数字的平均值)。
+
+例如：对应数据流：
+                 {6, 4, 5, 8, 7, 9, 3, 4, 1, 2, 5, 8}
+相应的中位数为：
+       {6, 5.0, 5, 5.5, 6, 6.5, 6, 5.5, 5, 4.5, 5, 5.0}
+
+```python
+def get_median(data):
+    if(len(data)==0):
+        return [];
+    heap_max_left=heap_max();
+    heap_min_right=heap_min();
+    ret=[];
+    i=0;
+    for i in range(len(data)):
+        if(i==0):
+            heap_max_left.insert(data[i]);
+            ret.append(heap_max_left.data[0]);
+        elif(i==1):
+            if(data[i]<heap_max_left.data[0]):
+                heap_min_right.insert(heap_max_left.data[0]);
+                heap_max_left.delete();
+                heap_max_left.insert(data[i]);
+            else:
+                heap_min_right.insert(data[i]);
+            ret.append((heap_min_right.data[0]+heap_max_left.data[0])/2);
+        else:
+            if(heap_max_left.size==heap_min_right.size):
+                if(data[i]>heap_min_right.data[0]):
+                    temp=heap_min_right.data[0];
+                    heap_min_right.delete();
+                    heap_min_right.insert(data[i]);
+                    heap_max_left.insert(temp);
+                    ret.append(heap_max_left.data[0]);
+                else:
+                    heap_max_left.insert(data[i]);
+                    ret.append(heap_max_left.data[0]);
+            else:
+                if(data[i]<heap_max_left.data[0]):
+                    temp=heap_max_left.data[0];
+                    heap_max_left.delete();
+                    heap_max_left.insert(data[i]);
+                    heap_min_right.insert(temp);
+                    ret.append((heap_min_right.data[0] + heap_max_left.data[0]) / 2);
+                else:
+                    heap_min_right.insert(data[i]);
+                    ret.append((heap_min_right.data[0] + heap_max_left.data[0]) / 2);
+        print("i
+```
