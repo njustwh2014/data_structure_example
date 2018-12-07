@@ -1,3 +1,6 @@
+**王欢** **学号：220181499**
+**github:** https://github.com/njustwh2014/data_structure_example
+
 # 骑士周游问题
 ## [Knight_traveled_around.py](./source/Knight_traveled_around.py)
 ## [Knight_dst.py](./source/knight_dst.py) 解决思考题
