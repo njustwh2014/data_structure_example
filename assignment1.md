@@ -20,12 +20,27 @@ def Inc(A):
 
 **代码实现：**
 ```python
-def arrangement(a):
-    b=[];
-    for item1 in a:
-        for item2 in a:
-            b.append(item1 * 10 + item2);
-return b;
+k=3
+a=[1,2,3,4,5]
+v=[None]*k
+m=0
+def arrangement(a,k,v,m):
+    ret=[];
+    if(k==1):
+        for i in range(len(a)):
+            if(v[len(v)-1]!=None):
+                v[k-1]=a[i]
+                c="";
+                for j in range(0,len(v)):
+                    c=c+str(v[j]);
+                ret.append(c);
+        return ret;
+    else:
+        for i in range(m,k):
+            for j in range(0,len(a)):
+                v[i]=a[j];
+                ret=ret+arrangement(a,k-1,v,m+1);
+        return ret;
 ```
 算法时间复杂度: $O(n^2)$
 

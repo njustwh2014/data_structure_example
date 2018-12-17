@@ -70,6 +70,43 @@ def finMid(A):
 的每个部分的和相等（为 9）。
 
 ```python
+def divequal(data,m):
+    sum_data=sum(data);
+    if(sum_data%m!=0):
+        return False;
+    aux = [0] * len(data);
+    ret=[[]]*m;
+    flag,aux= testdivequal(data, m, sum_data, sum_data/m, aux, sum_data/m, 1);
+    print(aux);
+    if(flag):
+        temp=[];
+        for i in range(m):
+            temp=[];
+            for j in range(len(aux)):
+                if(aux[j]==i+1):
+                    temp.append(data[j]);
+            ret[i]=temp.copy();
+        return ret;
+    return False;
+
+def testdivequal(data,m,sum_data,groupsum,aux,goal,groupId):
+    if(goal<0):
+        return False,aux;
+    if(goal==0):
+        groupId=groupId+1;
+        goal=groupsum;
+        if(groupId==m+1):
+            return True,aux;
+    for i in range(len(data)):
+        if(aux[i]!=0):
+            continue;
+        aux[i]=groupId;
+        flag,_=testdivequal(data,m,sum_data,groupsum,aux,goal-data[i],groupId);
+        if(flag):
+            return True,aux;
+        aux[i]=0;#当前data[i]分配失败，将其置为分配失败
+
+    return False,aux;    
 
 ```
 
